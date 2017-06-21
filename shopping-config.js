@@ -1,0 +1,23 @@
+var app= angular.module('shoppingApp',['ngRoute'])
+	.config(['$routeProvider',($routeProvider)=>{
+		console.log("GO")
+		$routeProvider
+			.when('/',{
+				templateUrl:"views/home.html",
+				controller:"HomeController"
+			}).otherwise({
+				redirectTo:"/home"
+			})
+			.when('/home',{
+				templateUrl:"views/home.html",
+				controller:"HomeController"
+			})
+			.when('/shopping-list',{
+				templateUrl:"views/shopping-list.html",
+				controller:"ShoppingListController",
+				controllerAs:"shoplist"
+			}).otherwise({
+				redirectTo:"/home"
+			});
+		console.log("DONE");
+	}]);
